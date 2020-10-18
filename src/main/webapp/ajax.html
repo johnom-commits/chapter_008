@@ -15,10 +15,10 @@
         $.ajax({
             type: 'GET',
             url: 'http://localhost:8080/items/greet',
-            data: 'name=Text',
+            data: {name : 'Hello ajax'},
             dataType: 'text'
         }).done(function (data) {
-            document.querySelector('#field').insertAdjacentHTML("afterbegin", data)
+            document.querySelector('#field').insertAdjacentHTML("afterbegin", JSON.parse(data).name)
         }).fail(function (err) {
             alert(err);
         });
